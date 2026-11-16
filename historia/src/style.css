@@ -250,8 +250,9 @@ p{margin:0}
 .as-typing i:nth-child(2){animation-delay:.15s}.as-typing i:nth-child(3){animation-delay:.3s}
 @keyframes tipeo{50%{transform:translateY(-4px);opacity:.4}}
 .as-form{display:flex;gap:8px;padding:10px;border-top:1px solid #e6e2da;background:#fff}
-.as-form input{flex:1;min-width:0;border:2px solid #e2e6ee;border-radius:999px;padding:11px 16px;font:inherit;color:var(--noche)}
-.as-form input:focus{outline:none;border-color:var(--sol)}
+.as-form input{flex:1;min-width:0;border:2px solid var(--brisa);border-radius:999px;padding:11px 16px;font:inherit;color:var(--noche);background:var(--brisa);color-scheme:light}
+.as-form input::placeholder{color:rgba(15,27,51,.6)}
+.as-form input:focus{outline:none;border-color:var(--noche);background:#a6dfe0}
 .as-form button{border:0;cursor:pointer;width:46px;border-radius:50%;background:var(--sol);color:var(--noche);font-size:18px}
 
 @media (max-width:980px){.ag-grid{grid-template-columns:repeat(2,1fr)}}
