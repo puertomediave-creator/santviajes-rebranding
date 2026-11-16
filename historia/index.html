@@ -10,7 +10,7 @@
 <link rel="preload" href="/fonts/SVConecta-Black.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
 <a class="skip" href="#cierre">Saltar a reservar</a>
@@ -18,6 +18,7 @@
 
 <header class="nav">
   <a href="#inicio" class="nav-logo" aria-label="San't Viajes, inicio"><img src="/logos/logo-horizontal-oscuro.svg" alt="San't Viajes"></a>
+  <nav class="nav-links" aria-label="Secciones"><a href="#nosotros">Nosotros</a><a href="#destinos">Destinos</a><a href="#paquetes">Paquetes</a></nav>
   <a class="btn btn-sol" href="https://wa.me/573019523262" target="_blank" rel="noopener">Reservar</a>
 </header>
 
@@ -58,10 +59,61 @@
     </div>
   </section>
 
+  <!-- QUIÉNES SOMOS -->
+  <section class="nosotros" id="nosotros">
+    <div class="ns-marquee" aria-hidden="true"><div class="ns-marquee-in">VIAJES QUE CONECTAN CONTIGO ✦ VIAJES QUE CONECTAN CONTIGO ✦ VIAJES QUE CONECTAN CONTIGO ✦ VIAJES QUE CONECTAN CONTIGO ✦</div></div>
+    <img class="ns-polaroid p1" data-speed="0.7" src="/fotos/cartagena-1200.webp" alt="" aria-hidden="true">
+    <img class="ns-polaroid p2" data-speed="1.1" src="/fotos/eje-cafetero-1200.webp" alt="" aria-hidden="true">
+    <img class="ns-polaroid p3" data-speed="0.5" src="/fotos/bogota-1200.webp" alt="" aria-hidden="true">
+    <div class="ns-wrap">
+      <p class="kicker">Capítulo 4 · Quiénes somos</p>
+      <h2 class="manifesto">No vendemos tiquetes. <em>Diseñamos momentos.</em> Somos San't Viajes, una operadora de turismo colombiana para viajeros que buscan algo más que un destino: una <em>conexión real</em> con cada lugar y con cada persona que lo hace especial.</h2>
+
+      <div class="ns-grid">
+        <article class="ns-card">
+          <span class="ns-ic" style="background:var(--corazon)">♥</span>
+          <h3>Lo que hacemos</h3>
+          <p>Diseñamos viajes a tu medida. Armamos la ruta, el hotel, los traslados y hasta la entrada al concierto. Tú solo te preocupas por empacar… y por las fotos.</p>
+        </article>
+        <article class="ns-card">
+          <span class="ns-ic" style="background:var(--sol);color:var(--noche)">✈</span>
+          <h3>Hacia dónde vamos</h3>
+          <p>Queremos ser la operadora que todo el país recomienda: la de la calidad, las ideas nuevas y la responsabilidad en cada salida. Que viajar se sienta con pasión y con confianza.</p>
+        </article>
+        <article class="ns-card">
+          <span class="ns-ic" style="background:var(--brisa);color:var(--noche)">✦</span>
+          <h3>Cómo lo hacemos</h3>
+          <p>Con los pies en la tierra: cada viaje impulsa la cultura, la gente y la naturaleza de los lugares que visitamos. Porque conectar también es devolver.</p>
+        </article>
+      </div>
+
+      <div class="ns-trust">
+        <blockquote>“Miles de viajeros ya han vivido esta experiencia con nosotros.”</blockquote>
+        <ul>
+          <li>✔ Operadora registrada · RNT 251308</li>
+          <li>✔ Atención personalizada por WhatsApp</li>
+          <li>✔ Medellín · Cartagena · Eje Cafetero · Bogotá · Cali</li>
+          <li>✔ Tours, eventos y conciertos</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- 3 · DESTINOS (scroll horizontal con parallax) -->
   <section class="destinos" id="destinos" aria-label="Destinos">
     <div class="trip" aria-hidden="true"><div class="trip-line"><div class="trip-fill"></div></div><span class="trip-plane">✈</span></div>
     <div class="track"></div>
+  </section>
+
+  <!-- PAQUETES -->
+  <section class="paquetes" id="paquetes">
+    <div class="pq-marquee" aria-hidden="true"><div class="pq-marquee-in">MEDELLÍN ✦ CARTAGENA ✦ EJE CAFETERO ✦ BOGOTÁ ✦ SANTA MARTA ✦ CALI ✦ MEDELLÍN ✦ CARTAGENA ✦ EJE CAFETERO ✦ BOGOTÁ ✦ SANTA MARTA ✦ CALI ✦</div></div>
+    <div class="pq-head">
+      <p class="kicker">Capítulo 6 · Paquetes</p>
+      <h2>Elige tu próximo <em>recuerdo</em>.</h2>
+      <p>Planes armados de principio a fin. Escríbenos por WhatsApp y te enviamos fechas, cupos y precio del paquete que te enamoró.</p>
+    </div>
+    <div class="pq-grid"></div>
   </section>
 
   <!-- 4 · CIERRE -->

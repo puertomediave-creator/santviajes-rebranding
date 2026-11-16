@@ -5,6 +5,7 @@ import Lenis from "lenis";
 import "lenis/dist/lenis.css";
 import "./style.css";
 import { DESTINOS, PLANE_D, heartRoute, USAR_FOTOS, fotoEscena } from "./escenas.js";
+import { renderPaquetes } from "./paquetes.js";
 
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
@@ -12,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 const track = document.querySelector(".track");
 track.insertAdjacentHTML(
   "beforeend",
-  `<article class="panel panel-intro"><div><p class="kicker">Capítulo 4 · El viaje</p>
+  `<article class="panel panel-intro"><div><p class="kicker">Capítulo 5 · El viaje</p>
      <h2>Cuatro destinos,<br><em>una sola forma</em> de viajar.</h2>
      <p>Desliza y recorre Colombia con nosotros.</p><div class="arrow" aria-hidden="true">→</div></div></article>` +
     DESTINOS.map(
@@ -23,6 +24,8 @@ track.insertAdjacentHTML(
       </article>`
     ).join("")
 );
+
+renderPaquetes(document.querySelector(".pq-grid"));
 
 const route = heartRoute();
 ["routeDots", "routeReveal", "routePath"].forEach((id) => document.getElementById(id).setAttribute("d", route));
@@ -122,6 +125,46 @@ mm.add("(prefers-reduced-motion: no-preference)", () => {
       gsap.from(card, { y: 120, rotate: -6, opacity: 0, ease: "back.out(1.6)", scrollTrigger: { trigger: panel, containerAnimation: hz, start: "left 70%", end: "left 15%", scrub: 1 } });
   });
   gsap.to(".wheel", { rotate: 360, transformOrigin: "50% 50%", transformBox: "fill-box", repeat: -1, duration: 1.4, ease: "none" });
+
+  // ---------------------------------------------------------- quiénes somos
+  const man = document.querySelector(".manifesto");
+  const wrapWords = (node) =>
+    [...node.childNodes].forEach((n) => {
+      if (n.nodeType !== 3) return wrapWords(n);
+      const frag = document.createDocumentFragment();
+      n.textContent.split(/(\s+)/).forEach((p) => {
+        if (!p) return;
+        if (/^\s+$/.test(p)) return frag.append(p);
+        const s = document.createElement("span");
+        s.className = "w";
+        s.textContent = p;
+        frag.append(s);
+      });
+      n.replaceWith(frag);
+    });
+  wrapWords(man);
+  gsap.fromTo(".manifesto .w", { opacity: 0.16 }, {
+    opacity: 1, stagger: 0.08, ease: "none",
+    scrollTrigger: { trigger: ".manifesto", start: "top 80%", end: "bottom 40%", scrub: 0.6 },
+  });
+  gsap.to(".ns-marquee-in", { xPercent: -25, ease: "none", scrollTrigger: { trigger: ".nosotros", start: "top bottom", end: "bottom top", scrub: true } });
+  gsap.from(".ns-card", {
+    y: 90, rotate: (i) => [-5, 3, -3][i], opacity: 0, stagger: 0.15, ease: "back.out(1.6)", duration: 0.9,
+    scrollTrigger: { trigger: ".ns-grid", start: "top 85%", toggleActions: "play none none reverse" },
+  });
+  gsap.from(".ns-trust", { y: 50, opacity: 0, duration: 0.8, ease: "power3.out", scrollTrigger: { trigger: ".ns-trust", start: "top 90%", toggleActions: "play none none reverse" } });
+
+  // ---------------------------------------------------------- paquetes
+  gsap.to(".pq-marquee-in", { xPercent: -30, ease: "none", scrollTrigger: { trigger: ".paquetes", start: "top bottom", end: "bottom top", scrub: true } });
+  gsap.from(".pq-head > *", { y: 40, opacity: 0, stagger: 0.12, duration: 0.8, ease: "power3.out", scrollTrigger: { trigger: ".pq-head", start: "top 85%" } });
+  ScrollTrigger.batch(".pk", {
+    start: "top 92%",
+    onEnter: (els) => gsap.from(els, { y: 140, rotate: (i) => (i % 2 ? 9 : -9), scale: 0.9, opacity: 0, stagger: 0.12, duration: 1, ease: "back.out(1.4)", overwrite: true }),
+    once: true,
+  });
+  gsap.utils.toArray(".pk-bg").forEach((bg) =>
+    gsap.fromTo(bg, { yPercent: -8 }, { yPercent: 8, ease: "none", scrollTrigger: { trigger: bg.parentElement, start: "top bottom", end: "bottom top", scrub: true } })
+  );
 
   // ---------------------------------------------------------- 4 · cierre
   const title = document.querySelector(".cierre-title");
