@@ -6,6 +6,8 @@ import "lenis/dist/lenis.css";
 import "./style.css";
 import { DESTINOS, PLANE_D, heartRoute, USAR_FOTOS, fotoEscena } from "./escenas.js";
 import { renderPaquetes } from "./paquetes.js";
+import { iniciarAgenda } from "./agenda.js";
+import { iniciarAsistente } from "./asistente.js";
 
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
@@ -26,6 +28,13 @@ track.insertAdjacentHTML(
 );
 
 renderPaquetes(document.querySelector(".pq-grid"));
+iniciarAsistente();
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+iniciarAgenda((grid) => {
+  ScrollTrigger.refresh();
+  if (reduceMotion) return;
+  gsap.from(grid.querySelectorAll(".ev-card"), { y: 50, opacity: 0, stagger: 0.06, duration: 0.6, ease: "power3.out", clearProps: "transform,opacity" });
+});
 
 const route = heartRoute();
 ["routeDots", "routeReveal", "routePath"].forEach((id) => document.getElementById(id).setAttribute("d", route));

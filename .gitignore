@@ -4,3 +4,4 @@ dist/
 historia/public/fonts/
 historia/public/logos/
 __pycache__/
+historia/public/agenda-demo.json
