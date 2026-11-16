@@ -48,3 +48,11 @@ python source/build.py
 ```
 
 Ver el manual: abre `brand/index.html` en el navegador.
+
+## Publicación
+
+- **Sitio en vivo:** https://santviajes-historia.netlify.app (Netlify, proyecto `santviajes-historia`)
+- **Panel:** https://app.netlify.com/projects/santviajes-historia
+- Netlify compila `historia/` con `npm run build` (ver `netlify.toml`).
+- Para publicar cambios: haz commit y pídele a Claude «publica los cambios en Netlify». Se sube una copia limpia del repositorio, **sin `node_modules`**: los módulos de Windows rompen la compilación en Linux.
+- GitHub: pendiente. Cuando tengas sesión en GitHub, se conecta el repo a Netlify para que cada `git push` publique solo.
