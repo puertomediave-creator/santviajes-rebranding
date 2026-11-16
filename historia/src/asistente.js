@@ -6,7 +6,11 @@ import { estadoAgenda } from "./agenda.js";
 const WA = "https://wa.me/573019523262";
 const esc = (s = "") => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 // texto seguro + enlaces clicables
-const enriquecer = (s) => esc(s).replace(/(https?:\/\/[^\s<)]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>').replace(/\n/g, "<br>");
+const enriquecer = (s) =>
+  esc(s)
+    .replace(/\*\*(.+?)\*\*/g, "<b>$1</b>")
+    .replace(/(https?:\/\/[^\s<)]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>')
+    .replace(/\n/g, "<br>");
 
 export function iniciarAsistente() {
   document.body.insertAdjacentHTML("beforeend", `
