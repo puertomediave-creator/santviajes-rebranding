@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>San't Viajes · Viajes que conectan contigo</title>
+<meta name="description" content="Recorre Colombia con San't Viajes: Medellín, Cartagena, Eje Cafetero y Bogotá. Operadora de turismo RNT 251308.">
+<meta name="theme-color" content="#0F1B33">
+<link rel="icon" href="/logos/isotipo-app.svg">
+<link rel="preload" href="/fonts/SVConecta-Black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<a class="skip" href="#cierre">Saltar a reservar</a>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <a href="#inicio" class="nav-logo" aria-label="San't Viajes, inicio"><img src="/logos/logo-horizontal-oscuro.svg" alt="San't Viajes"></a>
+  <a class="btn btn-sol" href="https://wa.me/573019523262" target="_blank" rel="noopener">Reservar</a>
+</header>
+
+<main>
+  <!-- 1 · PORTADA -->
+  <section class="hero" id="inicio">
+    <div class="hero-sky" data-speed="0.15" aria-hidden="true"></div>
+    <svg class="hero-trail" data-speed="0.35" viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M-40 640C180 520 280 200 540 260S880 640 1080 420S1240 120 1280 140" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-dasharray="1 24"/>
+    </svg>
+    <div class="hero-inner">
+      <p class="kicker hero-in">Operadora de turismo · RNT 251308</p>
+      <img class="hero-sticker" src="/logos/logo-sticker.svg" alt="San't Viajes — Viajes que conectan contigo" width="900" height="760">
+      <p class="hero-copy hero-in">Un viaje no es un lugar. Es lo que sientes cuando llegas.</p>
+    </div>
+    <div class="scroll-hint hero-in" aria-hidden="true"><span>Desliza</span><i></i></div>
+    <span class="float-spark" data-speed="0.6" style="left:12%;top:24%" aria-hidden="true">✦</span>
+    <span class="float-spark" data-speed="0.9" style="right:10%;top:62%" aria-hidden="true">✦</span>
+    <span class="float-spark small" data-speed="0.4" style="right:22%;top:16%" aria-hidden="true">✦</span>
+  </section>
+
+  <!-- 2 · LA RUTA (corazón que se dibuja) -->
+  <section class="ruta" id="ruta">
+    <div class="ruta-stage">
+      <div class="ruta-text">
+        <div class="step is-on"><p class="kicker">Capítulo 1</p><h2>Todo viaje empieza en el <em>corazón</em>.</h2></div>
+        <div class="step"><p class="kicker">Capítulo 2</p><h2>Trazamos la ruta <em>contigo</em>, punto por punto.</h2></div>
+        <div class="step"><p class="kicker">Capítulo 3</p><h2>Y cuando todo está listo… <em>despegamos</em>.</h2></div>
+      </div>
+      <svg class="ruta-svg" viewBox="0 0 512 512" aria-hidden="true">
+        <defs><mask id="routeMask" maskUnits="userSpaceOnUse"><path id="routeReveal" fill="none" stroke="#fff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/></mask></defs>
+        <path id="routeDots" fill="none" stroke="#fff" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 30" mask="url(#routeMask)"/>
+        <path id="routePath" fill="none" stroke="none"/>
+        <ellipse id="pinShadow" cx="250" cy="370" rx="40" ry="9" fill="#EB5A1E" opacity=".9"/>
+        <path id="pin" d="M250 357C214 330 200 312 200 292C200 277 212 266 226 266C237 266 246 272 250 281C254 272 263 266 274 266C288 266 300 277 300 292C300 312 286 330 250 357Z" fill="#EB5A1E"/>
+        <g id="plane"><path id="planeShape" fill="#F7C64A"/></g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 3 · DESTINOS (scroll horizontal con parallax) -->
+  <section class="destinos" id="destinos" aria-label="Destinos">
+    <div class="trip" aria-hidden="true"><div class="trip-line"><div class="trip-fill"></div></div><span class="trip-plane">✈</span></div>
+    <div class="track"></div>
+  </section>
+
+  <!-- 4 · CIERRE -->
+  <section class="cierre" id="cierre">
+    <div class="cierre-bg" data-speed="0.25" aria-hidden="true"></div>
+    <div class="cierre-inner">
+      <img class="cierre-iso" src="/logos/isotipo-oscuro.svg" alt="" width="220" height="220">
+      <h2 class="cierre-title">Viajes que <em>conectan</em> contigo.</h2>
+      <p class="cierre-copy">Cuéntanos a dónde te late el corazón y te armamos el plan completo.</p>
+      <div class="cierre-cta">
+        <a class="btn btn-sol big" href="https://wa.me/573019523262" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+        <a class="btn btn-ghost big" href="https://www.instagram.com/sant_viajesoficial/" target="_blank" rel="noopener">@sant_viajesoficial</a>
+      </div>
+    </div>
+    <footer class="foot"><img src="/logos/logo-horizontal-oscuro.svg" alt="San't Viajes"><span>Operadora de turismo · RNT 251308 · santviajes.com</span></footer>
+  </section>
+</main>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

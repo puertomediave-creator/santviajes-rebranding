@@ -1,0 +1,10 @@
+:root{
+  --sv-noche:#0F1B33; /* Azul Noche — Fondo principal, textos */
+  --sv-brisa:#8FD5D6; /* Aqua Brisa — SAN'T, mar, frescura */
+  --sv-sol:#F7C64A; /* Amarillo Sol — VIAJES, avión, energía */
+  --sv-corazon:#EB5A1E; /* Naranja Corazón — Acentos, llamados a la acción */
+  --sv-arena:#F7E4D4; /* Crema Arena — Lema, fondos cálidos */
+  --sv-nube:#FFFFFF; /* Blanco Nube — Borde sticker, fondos */
+  --sv-font-display:"SV Conecta","Arial Rounded MT Bold",system-ui,sans-serif;
+  --sv-font-body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}

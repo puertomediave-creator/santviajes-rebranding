@@ -1,0 +1,31 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fotos candidatas</title>
+<style>
+body{margin:0;background:#0F1B33;color:#fff;font:15px/1.5 system-ui,sans-serif;padding:24px}
+h1{margin:0 0 6px;font-size:26px} p{margin:0 0 22px;color:#cdd5e4}
+h2{margin:28px 0 12px;font-size:20px;color:#F7C64A}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+figure{margin:0;background:#1A2A4D;border-radius:14px;overflow:hidden}
+img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:#24365F}
+figcaption{padding:10px 12px;font-size:13px}
+figcaption b{color:#8FD5D6;font-size:15px}
+a{color:#F7C64A}
+</style></head><body>
+<h1>Fotos candidatas · Pexels (licencia gratuita, uso comercial)</h1>
+<p>Vista previa enlazada desde Pexels: nada está descargado todavía. Elige por número.</p>
+<div id="out"></div>
+<script>
+const D={
+ "Medellín":[[4150118,"Ciudad iluminada de noche"],[16637471,"Atardecer con nubes"],[32427254,"Techos y montañas"],[37278658,"Comuna 13, arte urbano"]],
+ "Cartagena":[[13804522,"Calle colonial de colores"],[11815901,"Centro histórico y mar al atardecer (dron)"],[33553690,"Techos con el mar al fondo"],[6226361,"Calle con flores y balcones"]],
+ "Eje Cafetero":[[15699964,"Palmas de cera entre niebla"],[2884864,"Palmas y colinas verdes"],[17073864,"Palmas con cielo azul"],[4807060,"Caballo y palmas, Salento"]],
+ "Bogotá":[[10986310,"Vista desde Monserrate"],[33675799,"La Candelaria"],[29477129,"Bogotá de noche"],[6708682,"Skyline con cerros"]],
+};
+let n=0,h="";
+for(const [dest,list] of Object.entries(D)){
+ h+=`<h2>${dest}</h2><div class="g">`;
+ for(const [id,t] of list){n++;h+=`<figure><img loading="lazy" src="https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=700" alt="${t}"><figcaption><b>${n}.</b> ${t} · <a href="https://www.pexels.com/photo/${id}/" target="_blank" rel="noopener">ver en Pexels</a></figcaption></figure>`}
+ h+="</div>";
+}
+document.getElementById("out").innerHTML=h;
+</script></body></html>

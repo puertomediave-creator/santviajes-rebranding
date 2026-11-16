@@ -1,0 +1,65 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Cartagena sin excusas</title>
+<link rel="stylesheet" href="../fonts/sv-conecta-embebida.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&display=block" rel="stylesheet">
+<link rel="stylesheet" href="posts.css">
+<style>
+.post{background:#BFE9EA}
+.head{position:absolute;top:180px;left:0;right:0;text-align:center;z-index:3}
+.head .pill{background:var(--corazon);color:#fff;font-size:38px;transform:rotate(-3deg);box-shadow:0 0 0 8px #fff}
+.c1{font-size:136px;color:var(--sol);margin-top:34px}
+.c2{font-size:118px;color:var(--brisa);margin-top:14px}
+.dates{position:absolute;left:70px;right:70px;top:1110px;z-index:4;background:#fff;border-radius:28px;padding:22px 30px;display:flex;justify-content:space-between;gap:20px;box-shadow:0 8px 0 var(--noche)}
+.dates div{font-family:var(--b);font-weight:500;font-size:23px;color:#3c475c}
+.dates b{display:block;font-family:var(--d);font-weight:900;font-size:36px;color:var(--noche)}
+</style></head><body>
+<div class="post light">
+<svg class="layer" viewBox="0 0 1080 1350" aria-hidden="true">
+  <circle cx="860" cy="600" r="120" fill="#F7C64A"/>
+  <rect y="760" width="1080" height="590" fill="#4DB6BF"/>
+  <path d="M0 790 Q 135 770 270 790 T 540 790 T 810 790 T 1080 790" fill="none" stroke="#fff" stroke-width="6" opacity=".6"/>
+  <g id="houses"></g>
+  <!-- chiva -->
+  <g transform="translate(560 940)">
+    <rect x="0" y="0" width="400" height="150" rx="26" fill="#F7C64A" stroke="#0F1B33" stroke-width="8"/>
+    <rect x="0" y="-36" width="400" height="44" rx="14" fill="#EB5A1E" stroke="#0F1B33" stroke-width="8"/>
+    <g fill="#8FD5D6" stroke="#0F1B33" stroke-width="6"><rect x="24" y="22" width="70" height="56" rx="10"/><rect x="112" y="22" width="70" height="56" rx="10"/><rect x="200" y="22" width="70" height="56" rx="10"/><rect x="288" y="22" width="88" height="56" rx="10"/></g>
+    <path d="M0 104 H400" stroke="#EB5A1E" stroke-width="12"/><path d="M0 124 H400" stroke="#8FD5D6" stroke-width="10"/>
+    <circle cx="90" cy="160" r="34" fill="#0F1B33"/><circle cx="90" cy="160" r="12" fill="#F7E4D4"/>
+    <circle cx="310" cy="160" r="34" fill="#0F1B33"/><circle cx="310" cy="160" r="12" fill="#F7E4D4"/>
+    <g fill="#F7E4D4"><circle cx="40" cy="-60" r="10"/><circle cx="130" cy="-60" r="10"/><circle cx="220" cy="-60" r="10"/><circle cx="310" cy="-60" r="10"/></g>
+  </g>
+  <!-- palmera -->
+  <g transform="translate(150 1100)">
+    <path d="M0 0 C 10 -120 -10 -220 30 -330" fill="none" stroke="#0F1B33" stroke-width="22" stroke-linecap="round"/>
+    <g fill="#2F8F6B" stroke="#0F1B33" stroke-width="6" stroke-linejoin="round">
+      <path d="M30 -330 C -40 -380 -120 -350 -150 -290 C -80 -330 -20 -320 30 -330Z"/>
+      <path d="M30 -330 C 100 -390 190 -360 210 -300 C 140 -340 80 -330 30 -330Z"/>
+      <path d="M30 -330 C 0 -410 60 -460 120 -450 C 70 -420 50 -380 30 -330Z"/>
+      <path d="M30 -330 C -30 -420 -110 -430 -140 -400 C -80 -400 -20 -370 30 -330Z"/>
+    </g>
+  </g>
+</svg>
+<div class="top"><img src="../logos/logo-horizontal-claro.svg" alt=""><span class="handle">@sant_viajesoficial</span></div>
+<div class="head">
+  <span class="pill">¡Playa, chiva y rumba! ✦</span><br>
+  <div class="stk c1" data-t="CARTAGENA">CARTAGENA</div><br>
+  <div class="stk c2" data-t="SIN EXCUSAS">SIN EXCUSAS</div>
+</div>
+<div class="dates">
+  <div><b>Compra hasta</b>el 30 de octubre</div>
+  <div><b>Viaja hasta</b>el 30 de noviembre</div>
+  <div><b>Cupos ✈</b>por WhatsApp</div>
+</div>
+<div class="foot"><span>RNT 251308</span><span>WhatsApp <b>301 952 3262</b></span><span>santviajes.com</span></div>
+</div>
+<script>
+const NS="http://www.w3.org/2000/svg",g=document.getElementById("houses");
+const cols=["#EB5A1E","#F7C64A","#F7E4D4","#8FD5D6","#E98AA6","#F7C64A","#EB5A1E"];
+let x=-20;[160,200,150,190,170,210,160].forEach((h,i)=>{const w=165,y=760-h;
+ g.insertAdjacentHTML("beforeend",`<rect x="${x}" y="${y}" width="${w}" height="${h+40}" fill="${cols[i]}" stroke="#0F1B33" stroke-width="7"/>
+ <rect x="${x-8}" y="${y-18}" width="${w+16}" height="22" rx="6" fill="#0F1B33"/>
+ <rect x="${x+30}" y="${y+40}" width="40" height="56" rx="20" fill="#0F1B33"/><rect x="${x+95}" y="${y+40}" width="40" height="56" rx="20" fill="#0F1B33"/>
+ <rect x="${x+18}" y="${y+96}" width="130" height="14" rx="4" fill="#2F8F6B"/>
+ <path d="M${x+20} ${y+110} v18 M${x+50} ${y+110} v18 M${x+80} ${y+110} v18 M${x+110} ${y+110} v18 M${x+140} ${y+110} v18" stroke="#2F8F6B" stroke-width="5"/>`);x+=w-6});
+</script>
+</body></html>

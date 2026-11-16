@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.netlify/
+historia/public/fonts/
+historia/public/logos/
+__pycache__/

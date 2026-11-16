@@ -1,0 +1,52 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Cuenta regresiva Medellín</title>
+<link rel="stylesheet" href="../fonts/sv-conecta-embebida.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&display=block" rel="stylesheet">
+<link rel="stylesheet" href="posts.css">
+<style>
+.title{position:absolute;left:0;right:0;top:170px;text-align:center;z-index:3}
+.title .kick{font-size:34px;color:var(--arena)}
+.yr{font-size:300px;color:var(--sol);margin-top:6px}
+.al{font-size:82px;color:var(--brisa);margin-top:18px}
+.when{position:absolute;left:56px;right:56px;top:760px;display:flex;justify-content:center;gap:16px;z-index:3}
+.when .pill{background:var(--nube);color:var(--noche);font-size:34px;padding:14px 28px}
+.when .pill.alt{background:var(--brisa)}
+.price{position:absolute;right:70px;top:880px;z-index:4;transform:rotate(-5deg);background:var(--corazon);color:#fff;border-radius:34px;padding:22px 40px;text-align:center;box-shadow:0 0 0 10px #fff,0 20px 40px rgba(0,0,0,.35)}
+.price small{display:block;font-size:28px;font-weight:700;letter-spacing:.1em}
+.price b{font-size:92px;font-weight:900;line-height:1}
+.price b span{font-size:40px}
+.cta{position:absolute;left:70px;top:925px;z-index:4;font-family:var(--b);font-size:30px;line-height:1.35;color:var(--arena);max-width:440px}
+.cta strong{font-family:var(--d);color:#fff;font-size:38px;display:block;margin-bottom:6px}
+</style></head><body>
+<div class="post">
+<svg class="layer" viewBox="0 0 1080 1350" aria-hidden="true">
+  <defs><radialGradient id="glow" cx=".5" cy=".35" r=".6"><stop offset="0" stop-color="#22366a"/><stop offset="1" stop-color="#0F1B33"/></radialGradient></defs>
+  <rect width="1080" height="1350" fill="url(#glow)"/>
+  <g id="fw"></g>
+  <path d="M0 1080 L120 980 L230 1030 L360 930 L470 1000 L600 900 L720 990 L850 920 L960 990 L1080 940 V1350 H0Z" fill="#1A2A4D"/>
+  <g id="city"></g>
+  <path d="M0 1150 L160 1080 L300 1120 L460 1060 L640 1130 L800 1070 L1080 1120 V1350 H0Z" fill="#24365F"/>
+  <path d="M180 300 C 300 180 420 420 540 330" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-dasharray="1 20" opacity=".35"/>
+</svg>
+<div class="top"><img src="../logos/logo-horizontal-oscuro.svg" alt=""><span class="handle">@sant_viajesoficial</span></div>
+<div class="title">
+  <div class="kick">✦ CUENTA REGRESIVA ✦</div><br>
+  <div class="stk yr" data-t="2027">2027</div><br>
+  <div class="stk al" data-t="¡ALERTA MEDELLÍN!">¡ALERTA MEDELLÍN!</div>
+</div>
+<div class="when"><span class="pill">30 DIC → 2 ENE</span><span class="pill alt">3 noches · 4 días</span></div>
+<div class="cta"><strong>Fin de año en la ciudad de la eterna primavera</strong>Alumbrados, fuegos artificiales y todo el plan organizado por nosotros.</div>
+<div class="price"><small>DESDE</small><b>$390 <span>USD</span></b></div>
+<div class="foot"><span>RNT 251308</span><span>WhatsApp <b>301 952 3262</b></span><span>santviajes.com</span></div>
+</div>
+<script>
+const NS="http://www.w3.org/2000/svg",fw=document.getElementById("fw"),city=document.getElementById("city");
+const C=["#F7C64A","#8FD5D6","#EB5A1E","#F7E4D4"];
+[[170,560,110,0],[900,520,130,1],[760,300,80,2],[300,780,70,3],[960,780,70,0],[120,250,60,1]].forEach(([x,y,r,c])=>{
+  for(let i=0;i<18;i++){const a=i/18*Math.PI*2,l=document.createElementNS(NS,"line");
+    l.setAttribute("x1",x+Math.cos(a)*r*.35);l.setAttribute("y1",y+Math.sin(a)*r*.35);
+    l.setAttribute("x2",x+Math.cos(a)*r);l.setAttribute("y2",y+Math.sin(a)*r);
+    l.setAttribute("stroke",C[c]);l.setAttribute("stroke-width",r>90?9:6);l.setAttribute("stroke-linecap","round");l.setAttribute("opacity",".85");fw.appendChild(l)}});
+let s=7;const rnd=()=>(s=(s*9301+49297)%233280)/233280;
+for(let i=0;i<140;i++){const c=document.createElementNS(NS,"circle");c.setAttribute("cx",rnd()*1080);c.setAttribute("cy",1000+rnd()*140);c.setAttribute("r",2+rnd()*3);c.setAttribute("fill",C[i%4]);c.setAttribute("opacity",.5+rnd()*.5);city.appendChild(c)}
+</script>
+</body></html>

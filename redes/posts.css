@@ -1,0 +1,29 @@
+/* Piezas Instagram 1080×1350 — San't Viajes rebranding 2026 */
+:root{
+  --noche:#0F1B33; --noche2:#1A2A4D; --noche3:#24365F;
+  --brisa:#8FD5D6; --sol:#F7C64A; --corazon:#EB5A1E; --arena:#F7E4D4; --nube:#fff;
+  --d:"SV Conecta","Arial Rounded MT Bold",sans-serif;
+  --b:"DM Sans","Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1350px;overflow:hidden;background:var(--noche)}
+.post{position:relative;width:1080px;height:1350px;overflow:hidden;font-family:var(--d);color:#fff;background:var(--noche)}
+.layer{position:absolute;inset:0}
+svg.layer{width:1080px;height:1350px}
+
+.top{position:absolute;top:44px;left:56px;right:56px;display:flex;justify-content:space-between;align-items:center;z-index:5}
+.top img{height:86px}
+.handle{font-weight:700;font-size:26px;color:var(--arena);background:rgba(15,27,51,.55);padding:10px 20px;border-radius:999px}
+.light .handle{color:var(--noche);background:rgba(255,255,255,.7)}
+
+.foot{position:absolute;bottom:0;left:0;right:0;height:92px;display:flex;align-items:center;justify-content:space-between;padding:0 56px;background:var(--noche);color:var(--arena);font-weight:700;font-size:25px;z-index:5}
+.foot b{color:var(--sol)}
+
+/* Titular tipo sticker: borde blanco + contorno noche (igual al logo) */
+.stk{position:relative;display:inline-block;isolation:isolate;font-weight:900;line-height:.92;
+  -webkit-text-stroke:18px var(--noche);paint-order:stroke fill}
+.stk::before{content:attr(data-t);position:absolute;inset:0;z-index:-1;color:#fff;-webkit-text-stroke:46px #fff;paint-order:stroke fill;white-space:inherit}
+
+.kick{display:inline-block;font-weight:700;font-size:30px;letter-spacing:.14em;color:var(--brisa)}
+.pill{display:inline-flex;align-items:center;gap:14px;font-weight:900;border-radius:999px;padding:16px 34px;white-space:nowrap}
+.spark{color:var(--corazon)}

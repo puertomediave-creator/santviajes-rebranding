@@ -1,0 +1,32 @@
+{
+  "noche": {
+    "hex": "#0F1B33",
+    "nombre": "Azul Noche",
+    "uso": "Fondo principal, textos"
+  },
+  "brisa": {
+    "hex": "#8FD5D6",
+    "nombre": "Aqua Brisa",
+    "uso": "SAN'T, mar, frescura"
+  },
+  "sol": {
+    "hex": "#F7C64A",
+    "nombre": "Amarillo Sol",
+    "uso": "VIAJES, avión, energía"
+  },
+  "corazon": {
+    "hex": "#EB5A1E",
+    "nombre": "Naranja Corazón",
+    "uso": "Acentos, llamados a la acción"
+  },
+  "arena": {
+    "hex": "#F7E4D4",
+    "nombre": "Crema Arena",
+    "uso": "Lema, fondos cálidos"
+  },
+  "nube": {
+    "hex": "#FFFFFF",
+    "nombre": "Blanco Nube",
+    "uso": "Borde sticker, fondos"
+  }
+}

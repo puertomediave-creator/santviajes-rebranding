@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>San't Viajes · Manual de marca</title>
+<meta name="description" content="Rebranding 2026 de San't Viajes: logotipo, isotipo, color, tipografía SV Conecta y aplicaciones.">
+<link rel="stylesheet" href="../fonts/sv-conecta-embebida.css">
+<link rel="stylesheet" href="tokens.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --ink:var(--sv-noche); --text:#3c475c; --muted:#69738a; --line:#e6e8ee; --soft:#f6f4f0;
+  --d:var(--sv-font-display); --b:var(--sv-font-body);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;overflow-x:clip;background:var(--bg);color:var(--text);font:16px/1.6 var(--b);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--d);color:var(--ink);margin:0;line-height:1.05;font-weight:900}
+h2{font-size:clamp(34px,5vw,56px)}
+h3{font-size:22px;font-weight:700}
+p{margin:0}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+section{padding:88px 0;border-top:1px solid var(--line)}
+.kicker{font-family:var(--d);font-weight:700;color:var(--sv-corazon);letter-spacing:.06em;font-size:14px;margin-bottom:10px}
+.lead{max-width:640px;margin-top:16px;font-size:18px}
+.grid{display:grid;gap:20px}
+.card{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff}
+.card .art{display:grid;place-items:center;padding:40px;min-height:260px}
+.card .cap{padding:14px 18px;border-top:1px solid var(--line);font-size:14px;color:var(--muted);display:flex;justify-content:space-between;gap:12px}
+.card .cap b{color:var(--ink);font-weight:700}
+.dark{background:var(--sv-noche)} .warm{background:var(--sv-arena)} .soft{background:var(--soft)}
+nav.top{position:sticky;top:0;z-index:5;background:rgba(15,27,51,.96);backdrop-filter:blur(8px)}
+nav.top .wrap{display:flex;align-items:center;gap:22px;height:64px;overflow-x:auto}
+nav.top img{height:38px;flex:none}
+nav.top a{color:#fff;text-decoration:none;font-family:var(--d);font-weight:700;font-size:15px;white-space:nowrap;opacity:.85}
+nav.top a:hover{opacity:1;color:var(--sv-sol)}
+nav.top .sp{flex:1}
+
+/* portada */
+.hero{background:var(--sv-noche);color:#fff;padding:72px 0 96px;position:relative;overflow:hidden;border:0}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{color:#fff;font-size:clamp(46px,7vw,92px)}
+.hero h1 span{color:var(--sv-sol)}
+.hero p{color:#cdd5e4;font-size:19px;max-width:520px;margin-top:20px}
+.hero .tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.tag{font-family:var(--d);font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:#fff}
+.hero .logo{filter:drop-shadow(0 18px 40px rgba(0,0,0,.35));transform:rotate(-4deg)}
+.route-bg{position:absolute;inset:0;pointer-events:none;opacity:.18}
+
+/* antes/después */
+.ba{grid-template-columns:1fr 1fr}
+.ba .art{min-height:300px}
+.ba img.old{max-height:240px;border-radius:12px}
+.pillars{grid-template-columns:repeat(3,1fr);margin-top:36px}
+.pillar{padding:26px;border-radius:22px;background:var(--soft)}
+.pillar .n{font-family:var(--d);font-weight:900;font-size:40px;color:var(--sv-corazon);line-height:1}
+.pillar h3{margin:10px 0 6px}
+
+/* logo */
+.logos{grid-template-columns:repeat(2,1fr)}
+.logos .wide{grid-column:span 2}
+.rules{grid-template-columns:repeat(3,1fr);margin-top:20px}
+.rule .art{min-height:200px}
+.bad{position:relative}
+.bad::after{content:"✕";position:absolute;top:12px;right:14px;width:30px;height:30px;border-radius:50%;background:#b42318;color:#fff;display:grid;place-items:center;font-weight:700}
+.clear{position:relative;outline:2px dashed var(--sv-corazon);outline-offset:28px}
+
+/* color */
+.swatches{grid-template-columns:repeat(3,1fr)}
+.sw{border-radius:22px;overflow:hidden;border:1px solid var(--line)}
+.sw .chip{height:150px;padding:18px;display:flex;align-items:flex-end;font-family:var(--d);font-weight:900;font-size:26px}
+.sw .meta{padding:14px 18px;font-size:14px;display:grid;gap:2px}
+.sw .meta code{font:500 13px ui-monospace,Consolas,monospace;color:var(--ink)}
+.ratio{grid-template-columns:repeat(6,1fr);height:44px;border-radius:12px;overflow:hidden;gap:0;margin-top:20px}
+.pairs{grid-template-columns:repeat(4,1fr);margin-top:20px}
+.pair{border-radius:16px;padding:18px;font-family:var(--d);font-weight:700;font-size:20px}
+.pair small{display:block;font:500 13px var(--b);opacity:.85;margin-top:6px}
+
+/* tipografía */
+.specimen{background:var(--sv-noche);color:#fff;border-radius:28px;padding:48px;margin-top:36px;position:relative;overflow:hidden}
+.specimen .big{font-family:var(--d);font-weight:900;font-size:clamp(90px,16vw,220px);line-height:.9;color:var(--sv-sol)}
+.specimen .big span{color:var(--sv-brisa)}
+.specimen .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:22px;color:#cdd5e4;font-size:15px}
+.weights{grid-template-columns:repeat(3,1fr);margin-top:20px}
+.weight{padding:26px;border-radius:22px;border:1px solid var(--line)}
+.weight .s{font-family:var(--d);font-size:44px;white-space:nowrap;color:var(--ink);line-height:1.05;margin:8px 0 10px}
+.glyphs{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));border:1px solid var(--line);border-radius:22px;overflow:hidden;margin-top:20px}
+.glyphs div{aspect-ratio:1;display:grid;place-items:center;font-family:var(--d);font-size:34px;color:var(--ink);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.glyphs div:hover{background:var(--sv-sol)}
+.scale{margin-top:20px;display:grid;gap:14px}
+.scale .l{display:grid;grid-template-columns:120px 1fr;align-items:baseline;gap:16px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.scale .l span{font:500 13px ui-monospace,Consolas,monospace;color:var(--muted)}
+.tester{margin-top:20px;border:1px solid var(--line);border-radius:22px;padding:22px}
+.tester .ctrl{display:flex;gap:12px;flex-wrap:wrap;align-items:center;font-size:14px}
+.tester select,.tester input[type=range]{accent-color:var(--sv-corazon)}
+.tester [contenteditable]{font-family:var(--d);color:var(--ink);font-size:72px;line-height:1.05;margin-top:18px;outline:none;word-break:break-word}
+
+/* elementos */
+.elements{grid-template-columns:repeat(3,1fr)}
+
+/* aplicaciones */
+.apps{grid-template-columns:repeat(12,minmax(0,1fr))}
+.post{grid-column:span 5;aspect-ratio:1;background:var(--sv-noche);border-radius:22px;padding:34px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;position:relative;overflow:hidden}
+.post h3{color:#fff;font-size:clamp(32px,4vw,48px);font-weight:900;line-height:.95}
+.post h3 em{font-style:normal;color:var(--sv-sol)}
+.post .price{font-family:var(--d);font-weight:900;font-size:22px;white-space:nowrap;background:var(--sv-corazon);display:inline-block;padding:8px 18px;border-radius:999px;transform:rotate(-3deg)}
+.post .meta{display:flex;justify-content:space-between;align-items:end}
+.story{grid-column:span 3;aspect-ratio:9/16;border-radius:22px;background:var(--sv-brisa);padding:24px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.story h3{font-size:clamp(24px,2.6vw,34px);font-weight:900}
+.story .cta{background:var(--sv-noche);color:#fff;font-family:var(--d);font-weight:700;text-align:center;padding:14px;border-radius:999px}
+.cards{grid-column:span 4;display:grid;gap:20px}
+.bcard{aspect-ratio:1.75;border-radius:16px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 14px 30px rgba(15,27,51,.14)}
+.bcard.f{background:var(--sv-noche)}
+.bcard.b{background:#fff;border:1px solid var(--line);color:var(--ink);font-size:13px}
+.bcard.b b{font-family:var(--d);font-size:20px;display:block}
+.pass{grid-column:span 12;display:grid;grid-template-columns:1fr 260px;border-radius:22px;overflow:hidden;box-shadow:0 14px 30px rgba(15,27,51,.12)}
+.pass .main{background:#fff;padding:28px;border:1px solid var(--line);border-right:2px dashed var(--line);display:grid;grid-template-columns:repeat(4,auto);gap:18px 28px;align-items:end}
+.pass .main .head{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center}
+.pass .k{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.pass .v{font-family:var(--d);font-weight:900;font-size:40px;color:var(--ink);line-height:1}
+.pass .side{background:var(--sv-sol);padding:28px;display:flex;flex-direction:column;justify-content:space-between}
+.pass .side .v{font-size:30px}
+.dl{grid-template-columns:repeat(3,1fr)}
+.dl a{display:block;padding:20px;border-radius:18px;border:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.dl a:hover{border-color:var(--sv-corazon)}
+.dl a b{font-family:var(--d);font-size:19px;display:block}
+.dl a span{font-size:14px;color:var(--muted)}
+footer{background:var(--sv-noche);color:#cdd5e4;padding:48px 0;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+
+@media (max-width:860px){
+  section{padding:64px 0}
+  .hero .wrap,.ba,.logos,.pillars,.rules,.swatches,.weights,.elements,.dl,.pairs{grid-template-columns:1fr}
+  .logos .wide{grid-column:auto}
+  .apps{grid-template-columns:minmax(0,1fr)}
+  .post,.story,.cards,.pass{grid-column:auto}
+  .post h3{font-size:40px}
+  .story{aspect-ratio:auto;min-height:420px}
+  .pass{grid-template-columns:1fr}
+  .pass .main{grid-template-columns:repeat(2,auto);border-right:1px solid var(--line);border-bottom:2px dashed var(--line)}
+  .specimen{padding:28px}
+  .wrap{padding:0 16px}
+}
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="Secciones">
+  <div class="wrap">
+    <img src="../logos/logo-horizontal-oscuro.svg" alt="San't Viajes">
+    <span class="sp"></span>
+    <a href="#concepto">Concepto</a><a href="#logo">Logo</a><a href="#color">Color</a>
+    <a href="#tipografia">Tipografía</a><a href="#elementos">Elementos</a><a href="#aplicaciones">Aplicaciones</a><a href="#descargas">Descargas</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <svg class="route-bg" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true"><path d="M-40 520 C 200 380 260 120 520 160 S 860 520 1060 300 S 1220 60 1260 80" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-dasharray="1 26"/></svg>
+  <div class="wrap">
+    <div>
+      <div class="kicker" style="color:var(--sv-sol)">REBRANDING 2026 · MANUAL DE MARCA</div>
+      <h1>Viajes que <span>conectan</span> contigo.</h1>
+      <p>Una identidad más cálida, más legible y 100% propia: el sticker de siempre, redibujado con su propia tipografía, y el corazón viajero convertido en isotipo.</p>
+      <div class="tags"><span class="tag">SV Conecta ✦ tipografía propia</span><span class="tag">6 colores</span><span class="tag">RNT 251308</span></div>
+    </div>
+    <img class="logo" src="../logos/logo-sticker.svg" alt="Logo sticker San't Viajes">
+  </div>
+</header>
+
+<section id="concepto">
+  <div class="wrap">
+    <div class="kicker">01 · CONCEPTO</div>
+    <h2>Del sticker al sistema.</h2>
+    <p class="lead">La marca ya tenía dos piezas con mucha personalidad: un logo tipo sticker y un ícono de corazón con ruta. El rebranding las une en un solo sistema con letras dibujadas a medida, una paleta afinada y reglas claras de uso.</p>
+    <div class="grid ba" style="margin-top:36px">
+      <div class="card"><div class="art dark"><img class="old" src="../logos/isotipo-oscuro.svg" alt="" style="max-height:220px"></div><div class="cap"><b>Isotipo</b><span>Corazón · ruta · avión · destino</span></div></div>
+      <div class="card"><div class="art dark"><img src="../logos/logo-sticker.svg" alt="" style="max-height:240px"></div><div class="cap"><b>Logo sticker</b><span>Redibujado con SV Conecta Black</span></div></div>
+    </div>
+    <div class="grid pillars">
+      <div class="pillar"><div class="n">01</div><h3>Cercana</h3><p>Formas redondas, sin esquinas duras. Hablamos de tú a tú, como un amigo que ya conoce el destino.</p></div>
+      <div class="pillar"><div class="n">02</div><h3>Alegre</h3><p>Color con intención: el sol, el mar y el corazón. Cada pieza debe dar ganas de empacar.</p></div>
+      <div class="pillar"><div class="n">03</div><h3>Confiable</h3><p>Azul noche como base, jerarquía clara y datos visibles (RNT, código de reserva, precios).</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="logo">
+  <div class="wrap">
+    <div class="kicker">02 · LOGOTIPO</div>
+    <h2>Una marca, cuatro versiones.</h2>
+    <p class="lead">El sticker es la versión principal. La horizontal es para encabezados y web; el isotipo para avatares, favicon e íconos de app; el wordmark para usos de una sola tinta.</p>
+    <div class="grid logos" style="margin-top:36px">
+      <div class="card wide"><div class="art dark" style="min-height:360px"><img src="../logos/logo-sticker.svg" alt="" style="max-height:300px"></div><div class="cap"><b>Principal · Sticker</b><span>logo-sticker.svg</span></div></div>
+      <div class="card"><div class="art"><img src="../logos/logo-horizontal-claro.svg" alt="" style="max-height:120px"></div><div class="cap"><b>Horizontal · fondo claro</b><span>logo-horizontal-claro.svg</span></div></div>
+      <div class="card"><div class="art dark"><img src="../logos/logo-horizontal-oscuro.svg" alt="" style="max-height:120px"></div><div class="cap"><b>Horizontal · fondo oscuro</b><span>logo-horizontal-oscuro.svg</span></div></div>
+      <div class="card"><div class="art soft"><img src="../logos/isotipo-app.svg" alt="" style="width:180px"></div><div class="cap"><b>Isotipo · app / avatar</b><span>isotipo-app.svg</span></div></div>
+      <div class="card"><div class="art warm"><img src="../logos/wordmark-noche.svg" alt="" style="max-height:90px"></div><div class="cap"><b>Wordmark · una tinta</b><span>wordmark-noche.svg</span></div></div>
+    </div>
+    <div class="grid rules">
+      <div class="card rule"><div class="art dark"><img class="clear" src="../logos/isotipo-oscuro.svg" alt="" style="width:110px"></div><div class="cap"><b>Área de protección</b><span>≥ ¼ del ancho</span></div></div>
+      <div class="card rule"><div class="art"><img src="../logos/logo-horizontal-claro.svg" alt="" style="width:160px"></div><div class="cap"><b>Tamaño mínimo</b><span>160 px · 30 mm</span></div></div>
+      <div class="card rule bad"><div class="art soft"><img src="../logos/logo-sticker.svg" alt="" style="max-height:150px;transform:scaleX(1.5)"></div><div class="cap"><b>No deformar</b><span>Escala proporcional</span></div></div>
+      <div class="card rule bad"><div class="art" style="background:#e9533e"><img src="../logos/logo-horizontal-claro.svg" alt="" style="max-height:80px"></div><div class="cap"><b>No sobre fondos saturados</b><span>Usa noche, arena o blanco</span></div></div>
+      <div class="card rule bad"><div class="art soft"><img src="../logos/logo-sticker.svg" alt="" style="max-height:150px;filter:hue-rotate(140deg)"></div><div class="cap"><b>No cambiar colores</b><span>Solo la paleta oficial</span></div></div>
+      <div class="card rule bad"><div class="art soft"><div style="font:700 40px 'Times New Roman';color:var(--sv-noche)">San't Viajes</div></div><div class="cap"><b>No reescribir el logo</b><span>Usa siempre el archivo</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="color">
+  <div class="wrap">
+    <div class="kicker">03 · COLOR</div>
+    <h2>Noche, mar, sol y corazón.</h2>
+    <p class="lead">La base es el azul noche; los tres colores vivos se usan como acentos y nunca compiten en la misma jerarquía. La barra muestra la proporción recomendada.</p>
+    <div class="grid swatches" style="margin-top:36px" id="sw"></div>
+    <div class="grid ratio" aria-hidden="true">
+      <div style="grid-column:span 3;background:var(--sv-noche)"></div><div style="background:var(--sv-arena)"></div><div style="background:var(--sv-brisa)"></div><div style="display:grid;grid-template-columns:2fr 1fr"><span style="background:var(--sv-sol)"></span><span style="background:var(--sv-corazon)"></span></div>
+    </div>
+    <h3 style="margin-top:44px">Combinaciones aprobadas</h3>
+    <div class="grid pairs">
+      <div class="pair" style="background:var(--sv-noche);color:var(--sv-sol)">Sol sobre Noche<small>Contraste 10.6 : 1</small></div>
+      <div class="pair" style="background:var(--sv-noche);color:var(--sv-brisa)">Brisa sobre Noche<small>Contraste 10.3 : 1</small></div>
+      <div class="pair" style="background:var(--sv-arena);color:var(--sv-noche)">Noche sobre Arena<small>Contraste 13.8 : 1</small></div>
+      <div class="pair" style="background:var(--sv-corazon);color:#fff">Blanco sobre Corazón<small>3.6 : 1 · solo títulos</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="tipografia">
+  <div class="wrap">
+    <div class="kicker">04 · TIPOGRAFÍA</div>
+    <h2>SV Conecta, letra propia.</h2>
+    <p class="lead">Una sans redondeada de trazo continuo, diseñada para la marca: puntas suaves como el sticker y círculos perfectos como el corazón. Tres pesos para títulos, más DM Sans para textos largos.</p>
+    <div class="specimen">
+      <div class="big">Aa<span>Ññ</span>✦</div>
+      <div class="row"><span>SV Conecta · Regular · Bold · Black</span><span>116 glifos · español completo · ♥ ✈ ✦</span></div>
+    </div>
+    <div class="grid weights">
+      <div class="weight"><div class="kicker" style="color:var(--muted)">REGULAR · 400</div><div class="s" style="font-weight:400">Cartagena</div><p>Subtítulos, etiquetas, navegación.</p></div>
+      <div class="weight"><div class="kicker" style="color:var(--muted)">BOLD · 700</div><div class="s" style="font-weight:700">Medellín</div><p>Títulos de sección, botones, precios.</p></div>
+      <div class="weight"><div class="kicker" style="color:var(--muted)">BLACK · 900</div><div class="s" style="font-weight:900">San Andrés</div><p>Titulares grandes y piezas sociales.</p></div>
+    </div>
+    <h3 style="margin-top:44px">Escala</h3>
+    <div class="scale">
+      <div class="l"><span>Display 72</span><div style="font:900 72px/1 var(--d);color:var(--ink)">¿Nos vamos?</div></div>
+      <div class="l"><span>H1 48</span><div style="font:900 48px/1.05 var(--d);color:var(--ink)">Paquetes a Santa Marta</div></div>
+      <div class="l"><span>H2 32</span><div style="font:700 32px/1.1 var(--d);color:var(--ink)">4 días · 3 noches · todo incluido</div></div>
+      <div class="l"><span>Etiqueta 18</span><div style="font:400 18px var(--d);color:var(--ink)">Código de reserva: SV-2026-0412</div></div>
+      <div class="l"><span>Texto · DM Sans 16</span><div>Recorre Colombia con una operadora que te acompaña antes, durante y después del viaje. Reserva fácil y con atención por WhatsApp.</div></div>
+    </div>
+    <h3 style="margin-top:44px">Juego de caracteres</h3>
+    <div class="glyphs" id="glyphs"></div>
+    <div class="tester">
+      <div class="ctrl"><b style="font-family:var(--d)">Prueba la fuente</b>
+        <label>Peso <select id="tw"><option value="400">Regular</option><option value="700">Bold</option><option value="900" selected>Black</option></select></label>
+        <label>Tamaño <input id="ts" type="range" min="24" max="160" value="72"></label>
+      </div>
+      <div id="tt" contenteditable="true" spellcheck="false">¡Vámonos a Guatapé! ✈ ♥</div>
+    </div>
+  </div>
+</section>
+
+<section id="elementos">
+  <div class="wrap">
+    <div class="kicker">05 · ELEMENTOS GRÁFICOS</div>
+    <h2>La ruta punteada.</h2>
+    <p class="lead">La línea de puntos del isotipo se vuelve recurso gráfico: une fotos, marca recorridos y guía la mirada hacia el llamado a la acción. El destello ✦ marca lo nuevo o lo destacado.</p>
+    <div class="grid elements" style="margin-top:36px">
+      <div class="card"><div class="art dark"><svg viewBox="0 0 300 160" width="100%" aria-hidden="true"><path d="M20 130 C 80 20 160 150 220 60 S 280 40 290 30" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-dasharray="1 16"/><circle cx="20" cy="130" r="9" fill="var(--sv-corazon)"/><text x="262" y="36" font-size="40" fill="var(--sv-sol)" style="font-family:var(--d)">✈</text></svg></div><div class="cap"><b>Ruta</b><span>trazo redondo · punto 1 / espacio 16</span></div></div>
+      <div class="card"><div class="art warm"><div style="font:900 120px/1 var(--d);color:var(--sv-corazon)">✦</div></div><div class="cap"><b>Destello</b><span>Novedades, ofertas, “nuevo”</span></div></div>
+      <div class="card"><div class="art soft"><div style="display:flex;gap:16px;font:400 64px/1 var(--d)"><span style="color:var(--sv-corazon)">♥</span><span style="color:var(--sv-noche)">✈</span><span style="color:var(--sv-sol)">✦</span></div></div><div class="cap"><b>Símbolos en la fuente</b><span>Escribe ♥ ✈ ✦ con SV Conecta</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="aplicaciones">
+  <div class="wrap">
+    <div class="kicker">06 · APLICACIONES</div>
+    <h2>La marca en el mundo.</h2>
+    <div class="grid apps" style="margin-top:36px">
+      <div class="post">
+        <svg style="position:absolute;inset:0;opacity:.25" viewBox="0 0 400 400" aria-hidden="true"><path d="M-10 330 C 120 260 140 120 260 140 S 360 60 420 20" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 16"/></svg>
+        <div style="position:relative"><div class="kicker" style="color:var(--sv-brisa)">✦ NUEVO PAQUETE</div><h3>Eje <em>Cafetero</em> en familia</h3></div>
+        <div class="meta" style="position:relative"><span class="price">Desde $890.000</span><img src="../logos/isotipo-oscuro.svg" alt="" style="width:84px"></div>
+      </div>
+      <div class="story">
+        <img src="../logos/wordmark-noche.svg" alt="" style="width:70%">
+        <div><div class="kicker" style="color:var(--sv-noche)">HISTORIA · 9:16</div><h3>¿Playa o montaña?</h3><p style="color:var(--sv-noche);margin-top:8px">Vota y te armamos el plan.</p></div>
+        <div class="cta">Reserva por WhatsApp</div>
+      </div>
+      <div class="cards">
+        <div class="bcard f"><img src="../logos/logo-horizontal-oscuro.svg" alt="" style="width:75%"><span style="color:var(--sv-arena);font-family:var(--d);font-size:14px">santviajes.com · RNT 251308</span></div>
+        <div class="bcard b"><div><b>Laura Gómez</b>Asesora de viajes</div><div>+57 300 000 0000<br>hola@santviajes.com</div></div>
+      </div>
+      <div class="pass">
+        <div class="main">
+          <div class="head"><img src="../logos/logo-horizontal-claro.svg" alt="" style="height:52px"><span class="kicker" style="margin:0">PASABORDO DE RESERVA</span></div>
+          <div><div class="k">Origen</div><div class="v">BOG</div></div>
+          <div><div class="k">Destino</div><div class="v" style="color:var(--sv-corazon)">ADZ ✈</div></div>
+          <div><div class="k">Salida</div><div class="v" style="font-size:28px">12 DIC</div></div>
+          <div><div class="k">Viajeros</div><div class="v" style="font-size:28px">2 ♥</div></div>
+        </div>
+        <div class="side"><div class="k" style="color:var(--sv-noche)">Código</div><div class="v">SV-0412</div><div style="font-family:var(--d);font-weight:700;color:var(--sv-noche)">San Andrés · 5D/4N</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="descargas">
+  <div class="wrap">
+    <div class="kicker">07 · DESCARGAS</div>
+    <h2>Archivos de marca.</h2>
+    <div class="grid dl" style="margin-top:36px">
+      <a href="../fonts/ttf/SVConecta-Regular.ttf" download><b>SV Conecta Regular</b><span>TTF · instalar en el equipo</span></a>
+      <a href="../fonts/ttf/SVConecta-Bold.ttf" download><b>SV Conecta Bold</b><span>TTF · instalar en el equipo</span></a>
+      <a href="../fonts/ttf/SVConecta-Black.ttf" download><b>SV Conecta Black</b><span>TTF · instalar en el equipo</span></a>
+      <a href="../fonts/sv-conecta.css"><b>Kit web</b><span>@font-face + WOFF2</span></a>
+      <a href="../logos/logo-sticker.svg" download><b>Logo sticker</b><span>SVG vectorial</span></a>
+      <a href="../logos/isotipo-app.svg" download><b>Isotipo app</b><span>SVG 512 × 512</span></a>
+      <a href="tokens.css"><b>Tokens de color</b><span>Variables CSS</span></a>
+      <a href="colores.json"><b>Paleta JSON</b><span>Para diseño y desarrollo</span></a>
+      <a href="../logos/logo-horizontal-claro.svg" download><b>Logo horizontal</b><span>SVG claro y oscuro</span></a>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap"><img src="../logos/logo-horizontal-oscuro.svg" alt="San't Viajes" style="height:56px"><span>Manual de marca · Rebranding 2026 · Operadora de turismo RNT 251308</span></div></footer>
+
+<script>
+const P=[["noche","#0F1B33","Azul Noche","Fondos, textos","100 / 47 / 0 / 80","#fff"],
+["brisa","#8FD5D6","Aqua Brisa","SAN'T, mar, frescura","33 / 0 / 2 / 16","#0F1B33"],
+["sol","#F7C64A","Amarillo Sol","VIAJES, avión","0 / 20 / 70 / 3","#0F1B33"],
+["corazon","#EB5A1E","Naranja Corazón","Acentos, CTA","0 / 62 / 87 / 8","#fff"],
+["arena","#F7E4D4","Crema Arena","Lema, fondos cálidos","0 / 8 / 14 / 3","#0F1B33"],
+["nube","#FFFFFF","Blanco Nube","Borde sticker, fondos","0 / 0 / 0 / 0","#0F1B33"]];
+const rgb=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)).join(", ");
+document.getElementById("sw").innerHTML=P.map(([k,h,n,u,c,f])=>`<div class="sw"><div class="chip" style="background:${h};color:${f}">${n}</div><div class="meta"><code>${h} · RGB ${rgb(h)}</code><code>CMYK ${c}</code><span>${u}</span></div></div>`).join("");
+const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÑÜabcdefghijklmnopqrstuvwxyzáéíóúñü0123456789.,:;¡!¿?'\"-–()/+=#%$@°♥✈✦";
+document.getElementById("glyphs").innerHTML=[...chars].map(c=>`<div>${c.replace("<","&lt;")}</div>`).join("");
+const tt=document.getElementById("tt");
+document.getElementById("tw").oninput=e=>tt.style.fontWeight=e.target.value;
+document.getElementById("ts").oninput=e=>tt.style.fontSize=e.target.value+"px";
+tt.style.fontWeight=900;
+</script>
+</body>
+</html>

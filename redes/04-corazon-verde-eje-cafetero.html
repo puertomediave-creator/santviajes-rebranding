@@ -1,0 +1,49 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>El corazón verde de Colombia</title>
+<link rel="stylesheet" href="../fonts/sv-conecta-embebida.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&display=block" rel="stylesheet">
+<link rel="stylesheet" href="posts.css">
+<style>
+.post{background:#CFEFE6}
+.head{position:absolute;top:190px;left:70px;z-index:3}
+.head .s{font-size:64px;font-weight:700;color:var(--noche)}
+.v{font-size:250px;color:var(--sol);margin-top:4px}
+.dc{font-size:96px;color:var(--brisa);margin-top:10px}
+.tag{position:absolute;right:66px;top:760px;z-index:4;background:var(--noche);color:#fff;border-radius:30px;padding:22px 32px;transform:rotate(4deg);text-align:center;box-shadow:0 0 0 9px #fff}
+.tag small{display:block;font-size:28px;font-weight:700;color:var(--brisa);letter-spacing:.08em}
+.tag b{font-size:56px;font-weight:900;color:var(--sol)}
+</style></head><body>
+<div class="post light">
+<svg class="layer" viewBox="0 0 1080 1350" aria-hidden="true">
+  <circle cx="900" cy="420" r="110" fill="#F7C64A" opacity=".9"/>
+  <path d="M0 870 C 200 760 380 800 560 860 S 900 760 1080 820 V1350 H0Z" fill="#8CCB8A"/>
+  <g id="palms"></g>
+  <path d="M0 990 C 220 900 420 960 620 1010 S 920 930 1080 980 V1350 H0Z" fill="#4FA36F"/>
+  <path d="M0 1110 C 260 1040 500 1110 760 1120 S 1000 1070 1080 1090 V1350 H0Z" fill="#2F7D5B"/>
+  <path d="M60 1160 C 260 1080 520 1200 700 1120 S 980 1060 1040 1000" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-dasharray="1 24"/>
+  <g transform="translate(1000 990) rotate(-60)"><path d="M0 -40 C4 -40 6 -35 6 -30 L6 -12 L38 6 L38 14 L6 4 L6 22 L15 30 L15 36 L0 32 L-15 36 L-15 30 L-6 22 L-6 4 L-38 14 L-38 6 L-6 -12 L-6 -30 C-6 -35 -4 -40 0 -40Z" fill="#F7C64A" stroke="#0F1B33" stroke-width="4"/></g>
+  <!-- granos de café -->
+  <g fill="#7A3E1D" stroke="#0F1B33" stroke-width="5">
+    <ellipse cx="150" cy="1220" rx="34" ry="46" transform="rotate(-30 150 1220)"/><path d="M135 1190 C 160 1210 140 1235 165 1250" fill="none" stroke="#F7E4D4" stroke-width="5"/>
+    <ellipse cx="230" cy="1235" rx="30" ry="40" transform="rotate(25 230 1235)"/><path d="M222 1205 C 245 1225 215 1245 240 1265" fill="none" stroke="#F7E4D4" stroke-width="5"/>
+  </g>
+</svg>
+<div class="top"><img src="../logos/logo-horizontal-claro.svg" alt=""><span class="handle">@sant_viajesoficial</span></div>
+<div class="head">
+  <div class="s">El corazón ♥</div>
+  <div class="stk v" data-t="verde">verde</div><br>
+  <div class="stk dc" data-t="de Colombia">de Colombia</div>
+</div>
+<div class="tag"><small>DESTINO</small><b>Eje Cafetero</b></div>
+<div class="foot"><span>RNT 251308</span><span>WhatsApp <b>301 952 3262</b></span><span>santviajes.com</span></div>
+</div>
+<script>
+const g=document.getElementById("palms");
+[[120,930,1.1],[300,880,.8],[470,910,.95],[690,860,.75],[840,900,1.05],[980,870,.7]].forEach(([x,y,s])=>{
+ const h=380*s,top=y-h;
+ g.insertAdjacentHTML("beforeend",`<line x1="${x}" y1="${y}" x2="${x}" y2="${top}" stroke="#E9E2D0" stroke-width="${10*s}" stroke-linecap="round"/>
+ <g fill="#2F7D5B" stroke="#0F1B33" stroke-width="${4*s}" stroke-linejoin="round" transform="translate(${x} ${top}) scale(${s})">
+ <path d="M0 0 C -40 -50 -100 -40 -120 10 C -70 -20 -30 -15 0 0Z"/><path d="M0 0 C 40 -50 100 -40 120 10 C 70 -20 30 -15 0 0Z"/>
+ <path d="M0 0 C -20 -60 10 -100 50 -100 C 20 -70 10 -40 0 0Z"/><path d="M0 0 C 20 -60 -10 -100 -50 -100 C -20 -70 -10 -40 0 0Z"/>
+ <path d="M0 0 C -60 -10 -90 30 -90 60 C -60 30 -30 15 0 0Z"/><path d="M0 0 C 60 -10 90 30 90 60 C 60 30 30 15 0 0Z"/></g>`)});
+</script>
+</body></html>
