@@ -46,7 +46,7 @@ if (reduce) document.documentElement.classList.add("reduced");
 // ------------------------------------------------------------ scroll suave (Lenis + ScrollTrigger)
 let lenis;
 if (!reduce) {
-  lenis = new Lenis({ lerp: 0.085, smoothWheel: true, wheelMultiplier: 0.9 });
+  lenis = new Lenis({ lerp: 0.12, smoothWheel: true, wheelMultiplier: 1.25, touchMultiplier: 1.4 });
   lenis.on("scroll", ScrollTrigger.update);
   gsap.ticker.add((t) => lenis.raf(t * 1000));
   gsap.ticker.lagSmoothing(0);
@@ -75,10 +75,12 @@ mm.add("(prefers-reduced-motion: no-preference)", () => {
   gsap.to(".hero-sticker", { y: -10, rotate: -2, duration: 2.4, ease: "sine.inOut", repeat: -1, yoyo: true, delay: 2 });
   gsap.to(".float-spark", { rotate: 360, duration: 12, ease: "none", repeat: -1 });
 
+  // El sticker sube y se va rápido; el aviso "Desliza" desaparece apenas empieza el scroll
   gsap.to(".hero-inner", {
-    yPercent: -35, scale: 0.82, opacity: 0, ease: "none",
-    scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true },
+    yPercent: -45, scale: 0.85, opacity: 0, ease: "power1.in",
+    scrollTrigger: { trigger: ".hero", start: "top top", end: "60% top", scrub: 0.3 },
   });
+  gsap.to(".scroll-hint", { opacity: 0, y: 20, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "8% top", scrub: true } });
 
   // parallax genérico: data-speed
   gsap.utils.toArray("[data-speed]").forEach((el) => {
@@ -96,7 +98,7 @@ mm.add("(prefers-reduced-motion: no-preference)", () => {
 
   const rt = gsap.timeline({
     defaults: { ease: "none" },
-    scrollTrigger: { trigger: ".ruta", start: "top top", end: "+=2800", pin: true, scrub: 1, anticipatePin: 1 },
+    scrollTrigger: { trigger: ".ruta", start: "top top", end: "+=1300", pin: true, scrub: 0.5, anticipatePin: 1 },
   });
   rt.to(steps[0], { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" })
     .from("#pinShadow", { scale: 0, transformOrigin: "50% 50%", duration: 0.5, ease: "back.out(3)" }, 0.1)
@@ -113,12 +115,13 @@ mm.add("(prefers-reduced-motion: no-preference)", () => {
 
   // ---------------------------------------------------------- 3 · destinos horizontal
   const dist = () => track.scrollWidth - window.innerWidth;
+  const RITMO = 0.55; // menos scroll vertical por cada panel horizontal
   const hz = gsap.to(track, {
     x: () => -dist(), ease: "none",
-    scrollTrigger: { trigger: ".destinos", start: "top top", end: () => "+=" + dist(), pin: true, scrub: 1, invalidateOnRefresh: true, anticipatePin: 1 },
+    scrollTrigger: { trigger: ".destinos", start: "top top", end: () => "+=" + dist() * RITMO, pin: true, scrub: 0.5, invalidateOnRefresh: true, anticipatePin: 1 },
   });
-  gsap.to(".trip-fill", { scaleX: 1, ease: "none", scrollTrigger: { trigger: ".destinos", start: "top top", end: () => "+=" + dist(), scrub: 1, invalidateOnRefresh: true } });
-  gsap.to(".trip-plane", { x: () => document.querySelector(".trip-line").offsetWidth - 30, ease: "none", scrollTrigger: { trigger: ".destinos", start: "top top", end: () => "+=" + dist(), scrub: 1, invalidateOnRefresh: true } });
+  gsap.to(".trip-fill", { scaleX: 1, ease: "none", scrollTrigger: { trigger: ".destinos", start: "top top", end: () => "+=" + dist() * RITMO, scrub: 0.5, invalidateOnRefresh: true } });
+  gsap.to(".trip-plane", { x: () => document.querySelector(".trip-line").offsetWidth - 30, ease: "none", scrollTrigger: { trigger: ".destinos", start: "top top", end: () => "+=" + dist() * RITMO, scrub: 0.5, invalidateOnRefresh: true } });
 
   gsap.utils.toArray(".panel").forEach((panel) => {
     panel.querySelectorAll("[data-depth]").forEach((ly) => {
@@ -168,7 +171,7 @@ mm.add("(prefers-reduced-motion: no-preference)", () => {
   gsap.from(".pq-head > *", { y: 40, opacity: 0, stagger: 0.12, duration: 0.8, ease: "power3.out", scrollTrigger: { trigger: ".pq-head", start: "top 85%" } });
   ScrollTrigger.batch(".pk", {
     start: "top 92%",
-    onEnter: (els) => gsap.from(els, { y: 140, rotate: (i) => (i % 2 ? 9 : -9), scale: 0.9, opacity: 0, stagger: 0.12, duration: 1, ease: "back.out(1.4)", overwrite: true }),
+    onEnter: (els) => gsap.from(els, { y: 90, rotation: (i) => (i % 2 ? 6 : -6), opacity: 0, stagger: 0.08, duration: 0.7, ease: "back.out(1.4)", overwrite: true, clearProps: "transform,opacity" }),
     once: true,
   });
   gsap.utils.toArray(".pk-bg").forEach((bg) =>
