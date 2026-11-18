@@ -263,6 +263,42 @@ p{margin:0}
   .as-fab{padding:12px 16px}
 }
 
+/* guía de scroll por inactividad */
+.gs{position:fixed;left:50%;bottom:calc(26px + env(safe-area-inset-bottom));z-index:44;display:flex;align-items:center;gap:12px;
+  border:0;cursor:pointer;font-family:var(--d);font-weight:700;font-size:16px;color:var(--noche);background:#fff;
+  padding:10px 18px 10px 12px;border-radius:999px;box-shadow:0 0 0 3px var(--sol),0 16px 40px rgba(0,0,0,.35);
+  opacity:0;transform:translate(-50%,24px);transition:opacity .45s ease,transform .45s cubic-bezier(.2,.9,.3,1.3);white-space:nowrap;max-width:calc(100vw - 32px)}
+.gs.on{opacity:1;transform:translate(-50%,0);animation:gs-flota 2.4s ease-in-out .5s infinite}
+.gs[hidden]{display:none}
+.scroll-hint{transition:visibility 0s .3s}
+.gs-activa .scroll-hint{visibility:hidden}
+.gs:hover{box-shadow:0 0 0 3px var(--corazon),0 16px 40px rgba(0,0,0,.35)}
+.gs-ic{width:30px;height:38px;flex:none;display:grid;place-items:center}
+.gs-ic svg{width:100%;height:100%;overflow:visible}
+.gs-wheel{animation:gs-rueda 1.4s ease-in-out infinite}
+.gs-finger{animation:gs-dedo 1.6s ease-in-out infinite;transform-box:fill-box}
+.gs-trail{animation:gs-estela 1.6s ease-in-out infinite}
+.gs-txt{overflow:hidden;text-overflow:ellipsis}
+.gs-chev{display:grid;gap:0;margin-left:2px}
+.gs-chev i{width:10px;height:10px;border-right:3px solid var(--corazon);border-bottom:3px solid var(--corazon);rotate:45deg;margin-top:-4px;animation:gs-chev 1.4s ease-in-out infinite}
+.gs-chev i:nth-child(2){animation-delay:.18s}
+/* brillo inferior: sugiere que hay más contenido abajo */
+.gs-glow{position:fixed;left:0;right:0;bottom:0;height:22vh;z-index:43;pointer-events:none;opacity:0;transition:opacity .8s;
+  background:linear-gradient(180deg,transparent,rgba(247,198,74,.16) 70%,rgba(247,198,74,.28))}
+.gs-glow.on{opacity:1;animation:gs-respira 2.4s ease-in-out infinite}
+@keyframes gs-flota{50%{transform:translate(-50%,-6px)}}
+@keyframes gs-rueda{0%{transform:translateY(0);opacity:1}70%{transform:translateY(12px);opacity:0}100%{opacity:0}}
+@keyframes gs-dedo{0%,15%{transform:translateY(8px)}60%,100%{transform:translateY(-10px)}}
+@keyframes gs-estela{0%,20%{opacity:0}50%{opacity:1}100%{opacity:0}}
+@keyframes gs-chev{0%,100%{opacity:.25;transform:translateY(-2px)}50%{opacity:1;transform:translateY(3px)}}
+@keyframes gs-respira{50%{opacity:.55}}
+.gs.quieto,.gs.quieto *{animation:none!important}
+.reduced .gs,.reduced .gs *{animation:none!important}
+@media (max-width:640px){
+  /* en celular va arriba del botón del asistente, centrado */
+  .gs{bottom:calc(86px + env(safe-area-inset-bottom));font-size:15px;padding:9px 16px 9px 10px}
+}
+
 /* 4 · cierre */
 .cierre{position:relative;min-height:100svh;display:grid;grid-template-rows:1fr auto;overflow:hidden;background:var(--noche)}
 .cierre-bg{position:absolute;inset:-20% 0;background:radial-gradient(40% 40% at 50% 45%,rgba(235,90,30,.28),transparent 70%),radial-gradient(30% 30% at 20% 80%,rgba(143,213,214,.18),transparent 70%)}

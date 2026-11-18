@@ -8,6 +8,7 @@ import { DESTINOS, PLANE_D, heartRoute, USAR_FOTOS, fotoEscena } from "./escenas
 import { renderPaquetes } from "./paquetes.js";
 import { iniciarAgenda } from "./agenda.js";
 import { iniciarAsistente } from "./asistente.js";
+import { iniciarGuiaScroll } from "./guia-scroll.js";
 
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
@@ -57,6 +58,12 @@ if (!reduce) {
     })
   );
 }
+
+// invitación a hacer scroll cuando el visitante se queda quieto
+iniciarGuiaScroll({
+  reducido: reduce,
+  avanzar: (d) => (lenis ? lenis.scrollTo(window.scrollY + d, { duration: 1.2 }) : window.scrollBy({ top: d, behavior: reduce ? "auto" : "smooth" })),
+});
 
 // barra de progreso + nav
 gsap.to(".progress", { scaleX: 1, ease: "none", scrollTrigger: { start: 0, end: "max", scrub: 0.3 } });
