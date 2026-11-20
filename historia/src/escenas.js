@@ -1,3 +1,4 @@
+const B = import.meta.env.BASE_URL;
 // Ilustraciones vectoriales por capas para el parallax.
 // Cada capa es un <svg> independiente con data-depth (0 = fondo quieto, 1 = primer plano rápido).
 
@@ -172,7 +173,7 @@ export function fotoEscena(d, i) {
     sparks += `<path class="tw" transform="translate(${x} ${y}) scale(${s})" d="M0 -40C4 -12 12 -4 40 0C12 4 4 12 0 40C-4 12 -12 4 -40 0C-12 -4 -4 -12 0 -40Z" fill="${[C.sol, C.corazon, "#fff"][k % 3]}"/>`;
   }
   const y0 = 760 - r() * 120;
-  return `<div class="ly ly-foto" data-depth="0.22"><img src="/fotos/${d.foto}-1200.webp" srcset="/fotos/${d.foto}-1200.webp 1200w, /fotos/${d.foto}-2400.webp 2400w" sizes="124vw" alt="${d.nombre}" decoding="async"></div>
+  return `<div class="ly ly-foto" data-depth="0.22"><img src="${B}fotos/${d.foto}-1200.webp" srcset="${B}fotos/${d.foto}-1200.webp 1200w, ${B}fotos/${d.foto}-2400.webp 2400w" sizes="124vw" alt="${d.nombre}" decoding="async"></div>
    <div class="tint" aria-hidden="true"></div>
    ${layer(0.85, `<path d="M-40 ${y0}C300 ${y0 - 160} 560 ${y0 + 60} 900 ${y0 - 80}S1400 ${y0 - 320} 1680 ${y0 - 260}" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-dasharray="1 26" opacity=".9"/>
      <path transform="translate(1540 ${y0 - 290}) rotate(60) scale(1.2)" d="${PLANE_D}" fill="${C.sol}" stroke="${C.noche}" stroke-width="3"/>${sparks}`, 'style="z-index:2"')}

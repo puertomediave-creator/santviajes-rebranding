@@ -8,7 +8,8 @@
     "sync": "node scripts/sync-marca.mjs",
     "dev": "npm run sync && vite --port 5180 --strictPort",
     "build": "npm run sync && vite build",
-    "preview": "vite preview --port 5181"
+    "preview": "vite preview --port 5181",
+    "agenda": "node scripts/generar-agenda.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.8.0",

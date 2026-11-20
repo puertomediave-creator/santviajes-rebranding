@@ -1,5 +1,8 @@
+const B = import.meta.env.BASE_URL;
 // Asistente San't Viajes · IA de Puerto Media
-// Usa /api/asistente (Claude) cuando el sitio tiene clave; si no, responde en modo guiado.
+// Si se configura VITE_ASISTENTE_URL (una función con Claude, p. ej. en Supabase), conversa con IA;
+// si no, responde en modo guiado con paquetes y agenda, sin servidor.
+const API_IA = import.meta.env.VITE_ASISTENTE_URL || "";
 import { PAQUETES, waLink } from "./paquetes.js";
 import { estadoAgenda } from "./agenda.js";
 
@@ -16,7 +19,7 @@ export function iniciarAsistente() {
   document.body.insertAdjacentHTML("beforeend", `
     <button class="as-fab" type="button" aria-controls="as-panel" aria-expanded="false"><span class="as-dot"></span>Asistente</button>
     <aside class="as-panel" id="as-panel" aria-label="Asistente de San't Viajes" hidden>
-      <header><img src="/logos/isotipo-oscuro.svg" alt=""><div><b>Asistente San't Viajes</b><small>IA de Puerto Media</small></div><button type="button" class="as-x" aria-label="Cerrar asistente">×</button></header>
+      <header><img src="${B}logos/isotipo-oscuro.svg" alt=""><div><b>Asistente San't Viajes</b><small>IA de Puerto Media</small></div><button type="button" class="as-x" aria-label="Cerrar asistente">×</button></header>
       <div class="as-log" aria-live="polite"></div>
       <form class="as-form"><input autocomplete="off" placeholder="Escribe tu pregunta…" aria-label="Mensaje para el asistente" maxlength="600"><button type="submit" aria-label="Enviar">✈</button></form>
     </aside>`);
@@ -24,7 +27,7 @@ export function iniciarAsistente() {
   const fab = document.querySelector(".as-fab"), panel = document.querySelector(".as-panel"), log = panel.querySelector(".as-log");
   const form = panel.querySelector(".as-form"), input = form.querySelector("input");
   const historia = [];
-  let modoIA = null, saludado = false, ocupado = false;
+  let modoIA = API_IA ? null : false, saludado = false, ocupado = false;
 
   const abrir = () => { panel.hidden = false; fab.hidden = true; fab.setAttribute("aria-expanded", "true"); if (!saludado) { saludado = true; saludar(); } input.focus({ preventScroll: true }); };
   const cerrar = () => { panel.hidden = true; fab.hidden = false; fab.setAttribute("aria-expanded", "false"); fab.focus(); };
@@ -92,7 +95,7 @@ export function iniciarAsistente() {
       ocupado = true;
       const espera = decir('<span class="as-typing"><i></i><i></i><i></i></span>');
       try {
-        const r = await fetch("/api/asistente", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ mensajes: historia }) });
+        const r = await fetch(API_IA, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ mensajes: historia }) });
         espera.remove();
         if (r.ok) {
           const { respuesta } = await r.json();

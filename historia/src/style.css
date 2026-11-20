@@ -195,6 +195,8 @@ p{margin:0}
 .ag-head h2 em{font-family:"Pacifico",cursive;font-weight:400;color:var(--sol)}
 .ag-head>p{max-width:60ch;margin-top:14px;font-size:18px;color:#cdd5e4}
 .ag-head .ag-status{font-size:14px;color:var(--brisa);font-family:var(--d);font-weight:700}
+.ag-cerca{border:0;cursor:pointer;font:inherit;font-weight:700;color:var(--noche);background:var(--brisa);padding:5px 12px;border-radius:999px}
+.ag-cerca:hover{background:var(--sol)}
 .ag-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 .ag-chips button{border:0;cursor:pointer;font-family:var(--d);font-weight:700;font-size:15px;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.08);color:#fff;transition:background .2s,color .2s}
 .ag-chips button.on,.ag-chips button:hover{background:var(--sol);color:var(--noche)}

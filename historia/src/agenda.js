@@ -1,5 +1,9 @@
-// Agenda viva: pide /api/eventos y pinta las tarjetas ordenadas por cercanía.
+// Agenda viva: lee agenda.json (lo genera GitHub Actions cada mañana) y la ordena
+// en el navegador por fecha y, si el visitante lo permite, por distancia.
 import { waLink } from "./paquetes.js";
+import { ordenar } from "./ranking.js";
+
+const B = import.meta.env.BASE_URL;
 
 const MES = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"];
 const COLOR = { "Conciertos y shows": "corazon", "Fiestas y ferias": "sol", Cultura: "brisa", "Paseos y tours": "verde" };
@@ -42,21 +46,36 @@ export async function iniciarAgenda(onListo) {
   const estado = document.querySelector(".ag-status");
   const chips = document.querySelector(".ag-chips");
   const mas = document.querySelector(".ag-more");
-  let datos;
+  let crudo, datos;
   try {
-    const r = await fetch("/api/eventos", { headers: { Accept: "application/json" } });
+    const r = await fetch(`${B}agenda.json`, { cache: "no-cache" });
     if (!r.ok) throw new Error(r.status);
-    datos = await r.json();
+    crudo = await r.json();
   } catch {
-    // En desarrollo local no hay funciones de Netlify: usa la copia de prueba si existe.
-    try { datos = await fetch("/agenda-demo.json").then((r) => (r.ok ? r.json() : Promise.reject())); }
-    catch { grid.innerHTML = `<p class="ag-empty">La agenda se está actualizando. Mientras tanto, pregúntanos por WhatsApp qué eventos se vienen.</p>`; return; }
+    grid.innerHTML = `<p class="ag-empty">La agenda se está actualizando. Mientras tanto, pregúntanos por WhatsApp qué eventos se vienen.</p>`;
+    return;
   }
 
-  estadoAgenda.eventos = datos.eventos;
-  estadoAgenda.cargada = true;
-  const cuando = new Date(datos.actualizado).toLocaleString("es-CO", { day: "numeric", month: "long", hour: "numeric", minute: "2-digit" });
-  estado.innerHTML = `Actualizada el ${cuando}${datos.origen?.ciudad ? ` · ordenada desde <b>${esc(datos.origen.ciudad)}</b>` : ""} · ${datos.total} eventos vigentes${datos.ia ? " · ✦ textos con IA" : ""}`;
+  let origen = {};
+  const recalcular = () => {
+    datos = ordenar(crudo, origen);
+    estadoAgenda.eventos = datos.eventos;
+    estadoAgenda.cargada = true;
+    const cuando = new Date(crudo.actualizado).toLocaleString("es-CO", { day: "numeric", month: "long", hour: "numeric", minute: "2-digit" });
+    estado.innerHTML = `Actualizada el ${cuando} · ${datos.total} eventos vigentes${crudo.ia ? " · ✦ textos con IA" : ""} · ` +
+      (origen.lat != null ? `<b>ordenada cerca de ti</b>` : `<button type="button" class="ag-cerca">📍 Ver primero lo que está cerca de mí</button>`);
+    estado.querySelector(".ag-cerca")?.addEventListener("click", pedirUbicacion);
+  };
+  const pedirUbicacion = () => {
+    if (!navigator.geolocation) return;
+    estado.querySelector(".ag-cerca").textContent = "Buscando tu ubicación…";
+    navigator.geolocation.getCurrentPosition(
+      (p) => { origen = { lat: p.coords.latitude, lon: p.coords.longitude }; recalcular(); visibles = 9; pintar(); },
+      () => { recalcular(); },
+      { timeout: 10000, maximumAge: 3600e3 }
+    );
+  };
+  recalcular();
 
   let filtro = "Todos", visibles = 9;
   const pintar = () => {

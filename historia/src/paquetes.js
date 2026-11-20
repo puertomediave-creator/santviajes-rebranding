@@ -1,3 +1,4 @@
+const B = import.meta.env.BASE_URL;
 // Paquetes tomados de las publicaciones de @sant_viajesoficial y de santviajes.com.
 // Solo se muestra precio o "Incluye" cuando aparece en la pieza original; lo demás va como "Vive".
 import { DESTINOS } from "./escenas.js";
@@ -43,7 +44,7 @@ export const PAQUETES = [
 
 function card(p, i) {
   const bg = p.foto
-    ? `<img src="/fotos/${p.foto}-1200.webp" srcset="/fotos/${p.foto}-1200.webp 1200w, /fotos/${p.foto}-2400.webp 2400w" sizes="(max-width:820px) 92vw, 420px" alt="" decoding="async">`
+    ? `<img src="${B}fotos/${p.foto}-1200.webp" srcset="${B}fotos/${p.foto}-1200.webp 1200w, ${B}fotos/${p.foto}-2400.webp 2400w" sizes="(max-width:820px) 92vw, 420px" alt="" decoding="async">`
     : p.escena();
   const lista = p.incluye || p.vive;
   return `<article class="pk" style="--tilt:${i % 2 ? 1.6 : -1.6}deg">

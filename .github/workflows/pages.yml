@@ -1,0 +1,60 @@
+# Publica la historia de San't Viajes en GitHub Pages.
+# - En cada cambio que se suba a main.
+# - Todos los días a las 6:00 a. m. (Colombia) para renovar la agenda de eventos.
+# - A mano desde la pestaña Actions ("Run workflow").
+name: Publicar en GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 11 * * *" # 11:00 UTC = 6:00 a. m. en Colombia
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: historia
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: historia/package-lock.json
+      - run: npm ci
+      - name: Agenda del día
+        run: npm run agenda
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        continue-on-error: true
+      - name: Compilar
+        run: npm run build
+        env:
+          VITE_BASE: /${{ github.event.repository.name }}/
+          VITE_ASISTENTE_URL: ${{ vars.ASISTENTE_URL }}
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: historia/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
