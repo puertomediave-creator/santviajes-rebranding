@@ -51,8 +51,9 @@ Ver el manual: abre `brand/index.html` en el navegador.
 
 ## Publicación
 
-- **Sitio en vivo:** https://santviajes-historia.netlify.app (Netlify, proyecto `santviajes-historia`)
-- **Panel:** https://app.netlify.com/projects/santviajes-historia
-- Netlify compila `historia/` con `npm run build` (ver `netlify.toml`).
-- Para publicar cambios: haz commit y pídele a Claude «publica los cambios en Netlify». Se sube una copia limpia del repositorio, **sin `node_modules`**: los módulos de Windows rompen la compilación en Linux.
-- GitHub: pendiente. Cuando tengas sesión en GitHub, se conecta el repo a Netlify para que cada `git push` publique solo.
+- **Sitio en vivo:** https://puertomediave-creator.github.io/santviajes-rebranding/ (GitHub Pages)
+- **Repositorio (público):** https://github.com/puertomediave-creator/santviajes-rebranding
+- Se publica solo con `.github/workflows/pages.yml`: en cada `git push` a `main`, todos los días a las 6:00 a. m. (renueva la agenda) y a mano desde la pestaña *Actions*.
+- Agenda con textos de IA: agrega el secreto `ANTHROPIC_API_KEY` en *Settings → Secrets and variables → Actions*. Sin él se usan textos predefinidos.
+- Asistente con IA: define la variable `ASISTENTE_URL` (una función propia con Claude, p. ej. en Supabase). Sin ella funciona en modo guiado.
+- Netlify (`santviajes-historia.netlify.app`) quedó suspendido por créditos agotados; `netlify.toml` y `historia/netlify/` se conservan por si se vuelve.
